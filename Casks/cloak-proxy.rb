@@ -2,8 +2,7 @@ cask "cloak-proxy" do
   version "0.4.2"
   sha256 "e3d30a7ecefda3d68e616c7cfe42c83ae95e1e5c111d168af5fdecf614b1fc90"
 
-  url "https://github.com/subcloak/cloak-proxy/releases/download/v#{version}/Cloak-Proxy.dmg",
-      verified: "github.com/subcloak/cloak-proxy/"
+  url "https://github.com/subcloak/cloak-proxy/releases/download/v#{version}/Cloak-Proxy.dmg"
   name "Cloak Proxy"
   desc "HTTPS debugging proxy, API client and MCP server"
   homepage "https://subcloak.com/apps/cloak-proxy"
