@@ -1,6 +1,6 @@
 cask "cloak-proxy" do
-  version "0.4.2"
-  sha256 "e3d30a7ecefda3d68e616c7cfe42c83ae95e1e5c111d168af5fdecf614b1fc90"
+  version "0.5.0"
+  sha256 "1e7a48818b8a4f921f6065f24e5d62975ff43bd695c775c3ba7e62c8955aea18"
 
   url "https://github.com/subcloak/cloak-proxy/releases/download/v#{version}/Cloak-Proxy.dmg"
   name "Cloak Proxy"
@@ -17,11 +17,17 @@ cask "cloak-proxy" do
   app "Cloak Proxy.app"
   binary "#{appdir}/Cloak Proxy.app/Contents/Resources/cloakctl"
 
+  # App Capture's network extension can only be removed by the app that contains it: the app's own command does it
+  # without opening a window (exits 0 when it's removed or was never installed).
   uninstall launchctl: [
               "com.subcloak.cloakproxy.dns-standby",
               "com.subcloak.cloakproxy.login-proxy-guard",
             ],
-            quit:      "com.subcloak.cloakproxy"
+            quit:      "com.subcloak.cloakproxy",
+            script:    {
+              executable: "#{appdir}/Cloak Proxy.app/Contents/MacOS/CloakProxy",
+              args:       ["--remove-network-extension"],
+            }
 
   zap trash: [
     "~/Library/Application Support/CloakProxy",
@@ -34,7 +40,7 @@ cask "cloak-proxy" do
 
   caveats <<~EOS
     Before uninstalling, remove Cloak Proxy's root certificate in Settings > Certificate >
-    Remove from Keychain, stop capturing any apps that ignore the proxy, and quit the app so
+    Remove from Keychain, stop capturing any apps that ignore the proxy (DNS capture), and quit the app so
     your previous proxy settings come back. Full steps:
       https://docs.subcloak.com/cloak-proxy/getting-started/install/#uninstall-cloak-proxy-completely
   EOS
