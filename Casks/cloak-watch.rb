@@ -1,6 +1,6 @@
 cask "cloak-watch" do
-  version "1.1.0"
-  sha256 "f8335da9d6dfdf27391badc2750cf70a9f6419a8d31c5c18d6d2ecfe83ccace9"
+  version "1.2.0"
+  sha256 "937e2c174d4173ac97cbc7cecaede1fffb010b0d0584fc8c50b03cc141757480"
 
   url "https://download.subcloak.com/release/watch-mac/#{version}/Cloak-Watch.dmg"
   name "Cloak Watch"
