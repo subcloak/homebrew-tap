@@ -1,6 +1,6 @@
 cask "cloak-proxy" do
-  version "0.7.2"
-  sha256 "1dd99d95b03d3cdfb0828528822d8813a4ef0651a96fe165b38674ffd9d3a0ac"
+  version "0.7.4"
+  sha256 "42fc8b3ed8a5d3931aeb53739fb8986fa6edf0179a1545b6e4630eaf6bc2c3e6"
 
   url "https://github.com/subcloak/cloak-proxy/releases/download/v#{version}/Cloak-Proxy.dmg"
   name "Cloak Proxy"
